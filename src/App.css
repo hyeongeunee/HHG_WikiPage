@@ -7,13 +7,13 @@ body {
     margin: 0px;
 }
 
-@media (min-width: 650px) {
+@media (min-width: 750px) {
     .App {
-        width: 640px;
+        width: 750px;
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 750px) {
     .App {
         width: 90vw;
     }
@@ -45,7 +45,6 @@ body {
 header {
     padding-top: 20px;
     padding-bottom: 20px;
-
     display: flex;
     align-items: center;
     border-bottom: 1px solid #e2e2e2;
@@ -68,6 +67,15 @@ header .head_btn_left {
 header .head_btn_right {
     width: 25%;
     justify-content: end;
+}
+
+/* Home */
+.Home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    justify-content: space-between;
 }
 
 /* WikiList */
@@ -102,6 +110,16 @@ header .head_btn_right {
     font-size: 18px;
 }
 
+.pagination {
+    display: flex;
+    align-self: center;
+}
+
+.pagination p {
+    font-size: 16px;
+    margin: 20px;
+}
+
 /* WikiItem */
 
 .WikiItem {
@@ -110,6 +128,7 @@ header .head_btn_right {
     border-bottom: 1px solid #e2e2e2;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .WikiItem .info_wrapper {
@@ -198,4 +217,56 @@ header .head_btn_right {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Wiki */
+
+.WikiPage {
+}
+
+.WikiPage section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.WikiPage h3 {
+    font-size: 25px;
+    font-weight: bold;
+    align-self: start;
+    padding-left: 10px;
+}
+
+.WikiPage h4 {
+    font-size: 25px;
+    font-weight: bold;
+    align-self: start;
+    padding-left: 10px;
+}
+
+.WikiPage .wiki_content_wrapper {
+    width: 100%;
+    background-color: #ececec;
+    border-radius: 5px;
+    word-break: keep-all;
+    overflow-wrap: break-words;
+}
+
+.WikiPage .wiki_content_wrapper .wiki_title {
+    padding: 5px 10px;
+    text-align: left;
+    font-size: 24px;
+    font-family: "Yeon Sung";
+    font-weight: 400;
+}
+
+.WikiPage .wiki_content_wrapper .wiki_content {
+    padding: 20px;
+    text-align: left;
+    font-size: 20px;
+    font-family: "Yeon Sung";
+    font-weight: 400;
+    line-height: 2.5;
 }

@@ -17,7 +17,7 @@ const WikiItem = ({ id, title, content, date }) => {
     return (
         <div className="WikiItem">
             <div onClick={goDetail} className="goDetail">
-                <p>디테일로 이동</p>
+                <p>상세 보기</p>
             </div>
             <div onClick={goDetail} className="info_wrapper">
                 <div className="wiki_date">{strDate}</div>

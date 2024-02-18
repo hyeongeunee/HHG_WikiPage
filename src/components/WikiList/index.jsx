@@ -25,9 +25,12 @@ const ControlMenu = React.memo(({ value, onChange, optionList }) => {
     );
 });
 
+const ITEMS_PER_PAGE = 5;
+
 const WikiList = ({ wikiList }) => {
     const navigate = useNavigate();
     const [sortType, setSortType] = useState("latest");
+    const [currentPage, setCurrentPage] = useState(1);
 
     const getProcessedWikiList = () => {
         const compare = (a, b) => {
@@ -41,28 +44,47 @@ const WikiList = ({ wikiList }) => {
         const copyList = JSON.parse(JSON.stringify(wikiList));
 
         const sortedList = copyList.sort(compare);
-        return sortedList;
+        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+        const endIndex = startIndex + ITEMS_PER_PAGE;
+        return sortedList.slice(startIndex, endIndex);
+    };
+
+    const totalPages = Math.ceil(wikiList.length / ITEMS_PER_PAGE);
+
+    const handleNextPage = () => {
+        setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+    };
+
+    const handlePrevPage = () => {
+        setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
     };
 
     return (
-        <div className="WikiList">
-            <div className="menu_wrapper">
-                <div className="left_col">
-                    <ControlMenu value={sortType} onChange={setSortType} optionList={sortOptionList} />
+        <>
+            <div className="WikiList">
+                <div className="menu_wrapper">
+                    <div className="left_col">
+                        <ControlMenu value={sortType} onChange={setSortType} optionList={sortOptionList} />
+                    </div>
+                    <div className="right_col">
+                        <Button
+                            text={"새 글작성"}
+                            onClick={() => {
+                                navigate("/new");
+                            }}
+                        />
+                    </div>
                 </div>
-                <div className="right_col">
-                    <Button
-                        text={"새 글작성"}
-                        onClick={() => {
-                            navigate("/new");
-                        }}
-                    />
-                </div>
+                {getProcessedWikiList().map((it) => (
+                    <WikiItem key={it.id} {...it} />
+                ))}
             </div>
-            {getProcessedWikiList().map((it) => (
-                <WikiItem key={it.id} {...it} />
-            ))}
-        </div>
+            <div className="pagination">
+                <Button text={"이전 페이지"} onClick={handlePrevPage} disabled={currentPage === 1} />
+                <p>{`${currentPage} / ${totalPages}`}</p>
+                <Button text={"다음 페이지"} onClick={handleNextPage} disabled={currentPage === totalPages} />
+            </div>
+        </>
     );
 };
 

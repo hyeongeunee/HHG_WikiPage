@@ -1,43 +1,29 @@
 // 수정
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { WikiStateContext } from "../../App";
+import WikiEditor from "../../components/WikiEditor";
 
 const Edit = () => {
+    const [originData, setOriginData] = useState();
     const navigate = useNavigate();
-    const [searchParams, setSearchParams] = useSearchParams();
+    const { id } = useParams();
 
-    const id = searchParams.get("id");
-    console.log("id : ", id);
+    const wikiList = useContext(WikiStateContext);
 
-    const mode = searchParams.get("mode");
-    console.log("mode : ", mode);
+    useEffect(() => {
+        if (wikiList.length >= 1) {
+            const targetWiki = wikiList.find((it) => parseInt(it.id) === parseInt(id));
+            if (targetWiki) {
+                setOriginData(targetWiki);
+            } else {
+                alert("존재하지 않는 게시글입니다.");
+                navigate("/", { replace: true });
+            }
+        }
+    }, [id, wikiList]);
 
-    return (
-        <div>
-            <h1>Edit</h1>
-            <p>이곳은 일기 수정 페이지 입니다.</p>
-            <button
-                onClick={() => {
-                    setSearchParams({ who: "hyeongeun" });
-                }}
-            >
-                QS 바꾸기
-            </button>
-            <button
-                onClick={() => {
-                    navigate("/home");
-                }}
-            >
-                HOME으로 가기
-            </button>
-            <button
-                onClick={() => {
-                    navigate(-1);
-                }}
-            >
-                뒤로가기
-            </button>
-        </div>
-    );
+    return <div>{originData && <WikiEditor isEdit={true} originData={originData} />}</div>;
 };
 
 export default Edit;

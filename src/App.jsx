@@ -86,8 +86,6 @@ const dummyData = [
 function App() {
     const [data, dispatch] = useReducer(reducer, dummyData);
 
-    console.log(new Date().getTime());
-
     const dataId = useRef(0);
 
     //CREATE
@@ -110,12 +108,13 @@ function App() {
     };
 
     //EDIT
-    const onEdit = (targetId, date, content) => {
+    const onEdit = (targetId, date, title, content) => {
         dispatch({
             type: "EDIT",
             data: {
                 id: targetId,
                 date: new Date(date).getTime(),
+                title,
                 content,
             },
         });
@@ -132,29 +131,11 @@ function App() {
             >
                 <BrowserRouter>
                     <div className="App">
-                        <WikiHeader
-                            headText={"헤더 입니다~~"}
-                            leftChild={
-                                <Button
-                                    text={"왼쪽 버튼"}
-                                    onClick={() => {
-                                        alert("왼쪽 클릭");
-                                    }}
-                                />
-                            }
-                            rightChild={
-                                <Button
-                                    text={"오른쪽 버튼"}
-                                    onClick={() => {
-                                        alert("오른쪽 클릭");
-                                    }}
-                                />
-                            }
-                        />
+                        <WikiHeader headText={"Wiki Page"} />
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/new" element={<New />} />
-                            <Route path="/edit" element={<Edit />} />
+                            <Route path="/edit/:id" element={<Edit />} />
                             <Route path="/wiki/:id" element={<Wiki />} />
                         </Routes>
                     </div>
