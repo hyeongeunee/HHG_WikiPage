@@ -1,9 +1,10 @@
 // 새 글 작성
+import WikiEditor from "../../components/WikiEditor";
+
 const New = () => {
     return (
         <div>
-            <h1>New</h1>
-            <p>작성 페이지 입니다.</p>
+            <WikiEditor />
         </div>
     );
 };

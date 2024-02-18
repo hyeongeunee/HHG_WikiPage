@@ -107,9 +107,7 @@ header .head_btn_right {
 .WikiItem {
     padding-top: 15px;
     padding-bottom: 15px;
-
     border-bottom: 1px solid #e2e2e2;
-
     display: flex;
     justify-content: space-between;
 }
@@ -135,4 +133,69 @@ header .head_btn_right {
 
 .WikiItem .btn_wrapper {
     min-width: 70px;
+}
+
+/* WikiEditor */
+
+.WikiEditor {
+}
+
+.WikiEditor section {
+    margin-bottom: 40px;
+}
+
+.WikiEditor h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.WikiEditor h4 {
+    font-size: 22px;
+}
+
+.WikiEditor .input_date {
+    border: none;
+    border-radius: 5px;
+    background-color: #ececec;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.WikiEditor .input_title {
+    font-size: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 50px;
+    resize: vertical;
+    border: none;
+    border-radius: 5px;
+    background-color: #ececec;
+    padding: 20px;
+}
+
+.WikiEditor textarea {
+    font-size: 20px;
+
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 400px;
+    resize: vertical;
+
+    border: none;
+    border-radius: 5px;
+    background-color: #ececec;
+
+    padding: 20px;
+}
+
+.WikiEditor .control_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

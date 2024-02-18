@@ -91,12 +91,13 @@ function App() {
     const dataId = useRef(0);
 
     //CREATE
-    const onCreate = (date, content) => {
+    const onCreate = (date, title, content) => {
         dispatch({
             type: "CREATE",
             data: {
                 id: dataId.current,
                 date: new Date(date).getTime(),
+                title,
                 content,
             },
         });
