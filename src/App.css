@@ -41,6 +41,7 @@ body {
     font-size: 18px;
     white-space: nowrap;
 }
+
 header {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -67,4 +68,71 @@ header .head_btn_left {
 header .head_btn_right {
     width: 25%;
     justify-content: end;
+}
+
+/* WikiList */
+
+.WikiList .menu_wrapper {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.WikiList .menu_wrapper .right_col {
+    flex-grow: 1;
+}
+
+.WikiList .menu_wrapper .right_col button {
+    width: 100%;
+}
+
+.WikiList .ControlMenu {
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ececec;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* WikiItem */
+
+.WikiItem {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #e2e2e2;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.WikiItem .info_wrapper {
+    flex-grow: 1;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.WikiItem .wiki_date {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.WikiItem .wiki_title {
+    font-size: 20px;
+}
+
+.WikiItem .wiki_content_preview {
+    font-size: 16px;
+}
+
+.WikiItem .btn_wrapper {
+    min-width: 70px;
 }

@@ -2,12 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 
-const WikiItem = ({ id, content, date }) => {
+const WikiItem = ({ id, title, content, date }) => {
     const navigate = useNavigate();
     const strDate = new Date(parseInt(date)).toLocaleDateString();
 
     const goDetail = () => {
-        navigate(`/diary/${id}`);
+        navigate(`/wiki/${id}`);
     };
 
     const goEdit = () => {
@@ -21,6 +21,7 @@ const WikiItem = ({ id, content, date }) => {
             </div>
             <div onClick={goDetail} className="info_wrapper">
                 <div className="wiki_date">{strDate}</div>
+                <div className="wiki_title">{title}</div>
                 <div className="wiki_content_preview">{content.slice(0, 25)}</div>
             </div>
             <div onClick={goEdit} className="btn_wrapper">
