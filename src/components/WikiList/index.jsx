@@ -68,6 +68,7 @@ const WikiList = ({ wikiList }) => {
                     </div>
                     <div className="right_col">
                         <Button
+                            color={"blue"}
                             text={"새 글작성"}
                             onClick={() => {
                                 navigate("/new");

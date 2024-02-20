@@ -2,12 +2,8 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 import WikiHeader from "../WikiHeader";
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
-import WikiItem from "../WikiItem";
 import { WikiDispatchContext } from "../../App";
-
-const getStringDate = (date) => {
-    return date.toISOString().slice(0, 10);
-};
+import { getStringDate } from "../../util/date";
 
 const WikiEditor = ({ isEdit, originData }) => {
     const titleRef = useRef(); // 제목 입력
@@ -55,7 +51,7 @@ const WikiEditor = ({ isEdit, originData }) => {
             <WikiHeader
                 headText={isEdit ? "게시글 수정하기" : "새 게시글 작성"}
                 leftChild={<Button text={"< 뒤로가기"} onClick={() => navigate(-1)} />}
-                rightChild={isEdit && <Button text={"삭제하기"} onClick={handleRemove} />}
+                rightChild={isEdit && <Button color={"red"} text={"삭제하기"} onClick={handleRemove} />}
             />
             <div>
                 <section>
@@ -95,8 +91,8 @@ const WikiEditor = ({ isEdit, originData }) => {
             </div>
             <section>
                 <div className="control_box">
-                    <Button text={"취소하기"} onClick={() => navigate(-1)} />
-                    <Button text={"작성완료"} onClick={handleSubmit} />
+                    <Button color={"red"} text={"취소하기"} onClick={() => navigate(-1)} />
+                    <Button color={"green"} text={"작성완료"} onClick={handleSubmit} />
                 </div>
             </section>
         </div>

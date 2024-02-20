@@ -3,10 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { WikiStateContext } from "../../App";
 import WikiHeader from "../../components/WikiHeader";
 import Button from "../../components/Button";
-
-const getStringDate = (date) => {
-    return date.toISOString().slice(0, 10);
-};
+import { getStringDate } from "../../util/date";
 
 const Wiki = () => {
     const { id } = useParams();

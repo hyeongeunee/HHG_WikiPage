@@ -17,12 +17,12 @@ const WikiItem = ({ id, title, content, date }) => {
     return (
         <div className="WikiItem">
             <div onClick={goDetail} className="goDetail">
-                <p>상세 보기</p>
+                <p>{id}</p>
             </div>
             <div onClick={goDetail} className="info_wrapper">
                 <div className="wiki_date">{strDate}</div>
                 <div className="wiki_title">{title}</div>
-                <div className="wiki_content_preview">{content.slice(0, 25)}</div>
+                <div className="wiki_content_preview">{content.slice(0, 50)}</div>
             </div>
             <div onClick={goEdit} className="btn_wrapper">
                 <Button text={"수정하기"} />

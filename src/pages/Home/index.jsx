@@ -1,3 +1,4 @@
+// 
 import { useContext, useEffect, useState } from "react";
 
 import Button from "../../components/Button";
@@ -18,14 +19,6 @@ const Home = () => {
             setData(wikiList.filter((it) => firstDay <= it.date && it.date <= lastDay));
         }
     }, [wikiList, curDate]);
-
-    const increaseMonth = () => {
-        setCurDate(new Date(curDate.getFullYear(), curDate.getMonth() + 1, curDate.getDate()));
-    };
-
-    const decreaseMonth = () => {
-        setCurDate(new Date(curDate.getFullYear(), curDate.getMonth() - 1, curDate.getDate()));
-    };
 
     return (
         <div className="Home">
